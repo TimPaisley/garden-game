@@ -52,4 +52,9 @@ public class Player : MonoBehaviour {
 	public void AddMoveAction(Vector3 point) {
 		actions.Enqueue(new Move(agent, character, point));
 	}
+
+	public void AddPlantAction(Tile tile, GameObject plant) {
+		actions.Enqueue (new Move (agent, character, tile.transform.position));
+		actions.Enqueue (new Plant (tile, plant));
+	}
 }

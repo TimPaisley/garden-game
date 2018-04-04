@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour {
 	public Camera cam;
 	public Player player;
 	public LayerMask raycastLayers;
+	public GameObject plant;
 
 	[HideInInspector]
 	public Tile tileInFocus;
@@ -28,7 +29,11 @@ public class GameManager : MonoBehaviour {
 			tileInFocus = tile;
 
 			if (Input.GetMouseButtonDown(0)) {
-				player.AddMoveAction(hit.point);
+				if (Input.GetKey (KeyCode.W)) {
+					player.AddPlantAction(tile, plant);
+				} else {
+					player.AddMoveAction(hit.point);
+				}
 			}
 		}
 	}
