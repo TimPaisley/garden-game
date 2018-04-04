@@ -20,9 +20,9 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 		MovePlayer();
+
 		if (activeAction != null) {
-			RunAction2(activeAction);
-			Debug.Log ("Performing Action");
+			RunAction (activeAction);
 		}
 
 		if (activeAction == null && actions.Count > 0) {
@@ -31,10 +31,9 @@ public class Player : MonoBehaviour {
 			activeAction.Begin ();
 			Debug.Log ("Action Started");
 		}
-
 	}
 
-	private void RunAction2(IAction action) {
+	private void RunAction(IAction action) {
 		if (!action.InProgress ()) {
 			action.Complete ();
 			activeAction = null;
@@ -42,33 +41,6 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-//	private IEnumerator RunAction(IAction action) {
-//		agent.SetDestination(action.destination);
-//		Debug.Log ("Starting Action");
-//		int i = 0;
-//
-//		while(action.state != Action.State.Finished || i < 10000) {
-//			if (action.state == Action.State.Moving) {
-//				Debug.Log ("Action: Moving");
-//				if (agent.remainingDistance > agent.stoppingDistance) {
-//					Debug.Log ("Action: Moving -> Acting");
-//					action.state = Action.State.Acting;
-//				}
-//			} else if (action.state == Action.State.Acting) {
-//				Debug.Log ("Action: Acting");
-//				yield return new WaitForSeconds(action.duration);
-//				Debug.Log ("Action: Acting -> Finished");
-//				action.state = Action.State.Finished;
-//			}
-//
-//			i++;
-//		}
-//
-//		activeAction = null;
-//		Debug.Log ("Action: Finished");
-//		yield return new WaitForSeconds(0.2f);
-//	}
-//
 	private void MovePlayer() {
 		if(agent.remainingDistance > agent.stoppingDistance) {
 			character.Move(agent.desiredVelocity, false, false);
@@ -77,7 +49,7 @@ public class Player : MonoBehaviour {
 		}
 	}
 
-	public void AddDestination(Vector3 point) {
-		actions.Enqueue(new Move(character, agent, point, rigidbody));
+	public void AddMoveAction(Vector3 point) {
+		actions.Enqueue(new Move(agent, character, point));
 	}
 }

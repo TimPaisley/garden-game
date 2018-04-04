@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 			tileInFocus = tile;
 
 			if (Input.GetMouseButtonDown(0)) {
-				player.AddDestination(hit.point);
+				player.AddMoveAction(hit.point);
 			}
 		}
 	}

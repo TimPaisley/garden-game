@@ -9,13 +9,11 @@ public class Move : IAction {
 	private NavMeshAgent agent;
 	private ThirdPersonCharacter character;
 	private Vector3 destination;
-	private Rigidbody rigidbody;
 
-	public Move(ThirdPersonCharacter character, NavMeshAgent agent, Vector3 destination, Rigidbody rigidbody) {
+	public Move(NavMeshAgent agent, ThirdPersonCharacter character, Vector3 destination) {
 		this.agent = agent;
 		this.character = character;
 		this.destination = destination;
-		this.rigidbody = rigidbody;
 	}
 
 	public void Begin() {
