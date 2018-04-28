@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour {
 
 	public Color regular;
 	public Color highlight;
+	public bool planted;
 
 	private GameManager manager;
 	private Renderer rend;
@@ -23,5 +24,10 @@ public class Tile : MonoBehaviour {
 		} else {
 			rend.material.color = regular;
 		}
+	}
+
+	public void Sow (Plant plant) {
+		planted = true;
+		Instantiate (plant.gameObject, this.transform.position + Vector3.up, Quaternion.identity, this.transform);
 	}
 }

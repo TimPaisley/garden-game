@@ -107,5 +107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81c1835551b5ba4ea7549120887b7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regular: {r: 0.018103434, g: 0.1544118, b: 0, a: 1}
-  highlight: {r: 0.028203648, g: 0.22794116, b: 0.0016760395, a: 1}
+  regular: {r: 0.21323532, g: 0.17647061, b: 0.079963244, a: 1}
+  highlight: {r: 0.41176468, g: 0.33742988, b: 0.14230102, a: 1}
+  planted: 0

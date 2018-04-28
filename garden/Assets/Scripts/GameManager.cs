@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour {
 	public Camera cam;
 	public Player player;
 	public LayerMask raycastLayers;
-	public GameObject plant;
+	public Plant plant;
 
 	[HideInInspector]
 	public Tile tileInFocus;
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour {
 			tileInFocus = tile;
 
 			if (Input.GetMouseButtonDown(0)) {
-				if (Input.GetKey (KeyCode.W)) {
+				if (Input.GetKey (KeyCode.W) && !tile.planted) {
 					player.AddPlantAction(tile, plant);
 				} else {
 					player.AddMoveAction(hit.point);

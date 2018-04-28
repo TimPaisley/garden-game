@@ -29,7 +29,6 @@ public class Player : MonoBehaviour {
 			IAction nextAction = actions.Dequeue();
 			activeAction = nextAction;
 			activeAction.Begin ();
-			Debug.Log ("Action Started");
 		}
 	}
 
@@ -37,7 +36,6 @@ public class Player : MonoBehaviour {
 		if (!action.InProgress ()) {
 			action.Complete ();
 			activeAction = null;
-			Debug.Log ("Action Finished");
 		}
 	}
 
@@ -53,8 +51,8 @@ public class Player : MonoBehaviour {
 		actions.Enqueue(new Move(agent, character, point));
 	}
 
-	public void AddPlantAction(Tile tile, GameObject plant) {
+	public void AddPlantAction(Tile tile, Plant plant) {
 		actions.Enqueue (new Move (agent, character, tile.transform.position));
-		actions.Enqueue (new Plant (tile, plant));
+		actions.Enqueue (new Sow (tile, plant, 2f, GetComponent<Animator>()));
 	}
 }

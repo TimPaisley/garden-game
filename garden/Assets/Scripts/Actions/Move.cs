@@ -24,7 +24,7 @@ public class Move : IAction {
 		return agent.remainingDistance > agent.stoppingDistance;
 	}
 
-	public void Process(float duration) {
+	public void Process() {
 		character.Move(agent.desiredVelocity, false, false);
 	}
 

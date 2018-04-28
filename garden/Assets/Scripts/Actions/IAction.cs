@@ -5,6 +5,6 @@ using UnityEngine;
 interface IAction {
 	void Begin();
 	bool InProgress();
-	void Process(float duration);
+	void Process();
 	void Complete ();
 }
